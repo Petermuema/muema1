@@ -1,0 +1,6 @@
+library(ggplot2)
+data <- mtcars
+ggplot(data, aes(x = wt, y = mpg)) +
+  geom_point(color = "blue") +
+  geom_smooth(method = "lm", color = "red") +
+  labs(title = "Car Weight vs. MPG", x = "Weight", y = "Miles Per Gallon")
