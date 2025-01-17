@@ -1,0 +1,10 @@
+library(dplyr)
+data <- data.frame(
+  Name = c("Alice", "Bob", "Charlie", NA),
+  Age = c(25, 30, NA, 40),
+  Score = c(90, NA, 85, 70)
+)
+clean_data <- data %>%
+  filter(!is.na(Name)) %>%
+  mutate(Age = ifelse(is.na(Age), median(Age, na.rm = TRUE), Age))
+print(clean_data)
