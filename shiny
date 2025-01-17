@@ -1,0 +1,11 @@
+library(shiny)
+ui <- fluidPage(
+  sliderInput("bins", "Number of bins:", min = 1, max = 50, value = 30),
+  plotOutput("distPlot")
+)
+server <- function(input, output) {
+  output$distPlot <- renderPlot({
+    hist(rnorm(500), breaks = input$bins, col = "blue")
+  })
+}
+shinyApp(ui, server)
